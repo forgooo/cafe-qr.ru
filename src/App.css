@@ -1,0 +1,764 @@
+body {
+  cursor: default;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/********** Template CSS **********/
+:root {
+  --primary: #FEA116;
+  --light: #F1F8FF;
+  --dark: #0F172B;
+}
+
+.ff-secondary {
+  font-family: 'Pacifico', cursive;
+}
+
+.fw-medium {
+  font-weight: 600 !important;
+}
+
+.fw-semi-bold {
+  font-weight: 700 !important;
+}
+
+/*** Back-to-Top Button ***/
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 45px;
+  bottom: 45px;
+  z-index: 99;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-to-top:hover {
+  background-color: #0056b3;
+}
+
+/*** Spinner ***/
+#spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#spinner.show {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease-out, visibility 0s linear 0s;
+}
+
+
+/*** Navbar ***/
+
+
+.navbar-dark .navbar-nav .nav-link {
+  position: relative;
+  margin-left: 25px;
+  padding: 35px 0;
+  font-size: 15px;
+  color: var(--light) !important;
+  text-transform: uppercase;
+  font-weight: 500;
+  outline: none;
+  transition: .5s;
+}
+
+.sticky-top.navbar-dark .navbar-nav .nav-link {
+  padding: 20px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--primary) !important;
+}
+
+.navbar-dark .navbar-brand img {
+  max-height: 60px;
+  transition: .5s;
+}
+
+.sticky-top.navbar-dark .navbar-brand img {
+  max-height: 45px;
+}
+
+@media (max-width: 991.98px) {
+  .sticky-top.navbar-dark {
+      position: relative;
+  }
+
+  .navbar-dark .navbar-collapse {
+      margin-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+  }
+
+  .navbar-dark .navbar-nav .nav-link,
+  .sticky-top.navbar-dark .navbar-nav .nav-link {
+      padding: 10px 0;
+      margin-left: 0;
+  }
+
+  .navbar-dark .navbar-brand img {
+      max-height: 45px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-dark {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      background: transparent !important;
+  }
+
+  .sticky-top.navbar-dark {
+      position: fixed;
+      background: var(--dark) !important;
+  }
+}
+
+.navbar-logo-img {
+  margin-left: 35%;
+}
+
+/*** Hero Header ***/
+.hero-header {
+  background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(../public/img/bg-hero.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-height: 150vh;
+  object-fit: cover;
+  margin-top: -50px;
+}
+
+.hero-header img {
+  animation: imgRotate 50s linear infinite;
+}
+
+@keyframes imgRotate { 
+  100% { 
+      transform: rotate(360deg); 
+  } 
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255, 255, 255, .5);
+}
+
+/*** Section Title ***/
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::before {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 2px;
+  top: 50%;
+  left: -55px;
+  margin-top: -1px;
+  background: var(--primary);
+}
+
+.section-title::after {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 2px;
+  top: 50%;
+  right: -55px;
+  margin-top: -1px;
+  background: var(--primary);
+}
+
+.text-end {
+  font-size: 19px;
+}
+
+.section-title.text-start::before,
+.section-title.text-end::after {
+  display: none;
+}
+
+/*** Food Menu ***/
+.nav-pills .nav-item .active {
+  border-bottom: 2px solid var(--primary);
+}
+
+/*** Footer ***/
+.footer .btn.btn-social {
+  margin-right: 5px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light);
+  border: 1px solid #FFFFFF;
+  border-radius: 35px;
+  transition: .3s;
+}
+
+.footer .btn.btn-social:hover {
+  color: var(--primary);
+}
+
+.footer .btn.btn-link {
+  display: block;
+  margin-bottom: 5px;
+  padding: 0;
+  text-align: left;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: normal;
+  text-transform: capitalize;
+  transition: .3s;
+}
+
+.footer .btn.btn-link::before {
+  position: relative;
+  content: "\f105";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+  letter-spacing: 1px;
+  box-shadow: none;
+}
+
+.footer .copyright {
+  padding: 25px 0;
+  font-size: 15px;
+  border-top: 1px solid rgba(256, 256, 256, .1);
+}
+
+.footer .copyright a {
+  color: var(--light);
+}
+
+.footer .footer-menu a {
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: 1px solid rgba(255, 255, 255, .1);
+}
+
+.footer .footer-menu a:last-child {
+  margin-right: 0;
+  padding-right: 0;
+  border-right: none;
+}
+
+
+/*** Мои коректировки ***/
+
+
+.nav-link1 {
+  color: #fea116;
+}
+
+.mt-6 {
+  margin-top: 101px;
+}
+
+.text-primary1 {
+  color: #fea116;
+}
+
+.img-prof {
+  width: 40px;
+  margin-top: 65%;
+  margin-left: 60%;
+}
+
+.img-prof1 {
+  width: 40px;
+}
+
+.dropmenu-style {
+  text-align: center;
+}
+
+.add-button {
+  width: 110px;
+  max-height: 30px;
+  background-color: #fea116;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+}
+
+.sum-gap {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.number-of-dishes {
+  text-align: center;
+  width: 40px;
+  text-decoration: none;
+  font-size: 17px;
+  border-color: black;
+  border-radius: 6px;
+  margin: 0 10px;
+}
+
+.plus-minus-button {
+  width: 30px;
+  max-height: 30px;
+  background-color: #fea116;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.d-flex.justify-content-center {
+  margin-top: 5px; /* Отступ между кнопками и описанием */
+}
+
+.order-summary {
+  max-width: 350px;
+}
+
+.error-order-repel {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.error-order {
+  color: red;
+}
+
+.customization-button {
+  background-color: #fea116;
+  color: white;
+  text-decoration: none;
+  font-size: 19px;
+  border: none;
+  border-radius: 6px;
+}
+
+.customization-button:hover {
+  background-color: #ca7d09;
+  transition: 0.6s;
+}
+
+.my-customization-body {
+  text-decoration: underline;
+  text-decoration-color: white;
+  color: black;
+  font-weight: bold;
+}
+
+.my-customization-body-underline {
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+
+.border-primary1 {
+  border-color: #fea116 !important;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.myOrder-button {
+  background-color: #fea116;
+  color: white;
+  text-decoration: none;
+  font-size: 19px;
+  border: none;
+  margin-right: 36%;
+  border-radius: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+
+/*** login\register ***/
+
+
+.beautiful-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.register-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 550px;
+}
+
+.register-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.register-input, [type="text"], input[type="password"], input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.register-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.text-log-reg {
+  margin-top: 3%;
+}
+
+.link-log-reg {
+  text-decoration: none;
+}
+
+
+/*** order ***/
+
+
+.order {
+  max-width: 600px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #e7e9eb;
+  margin: auto;
+  padding: 20px;
+  font-size: 22px;
+}
+
+@media (max-width: 600px) {
+  .order {
+    font-size: 17px;
+  }
+}
+
+.order-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px; /* Добавляем расстояние между левым и правым блоками */
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.order-status {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center; /* Центрируем по вертикали */
+  width: 100%; /* Занимает всю ширину контейнера */
+  font-weight: bold;
+}
+
+.order-ready {
+  margin-left: 1%;
+  background-color: lawngreen;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+}
+
+.order-no-ready {
+  margin-left: 1%;
+  background-color: red;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+}
+
+.order-in-progress {
+  margin-left: 1%;
+  background-color: yellow;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+}
+
+.order-main-text,
+.order-order,
+.order-number,
+.order-price {
+  margin-bottom: 6px;
+}
+
+.order-noOrder {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+
+/*** display order ***/
+
+
+.custom-buttons-booktable {
+  padding: 12px;
+}
+
+.display-order-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Заставляем родительский элемент занимать всю высоту окна */
+}
+
+.display-order-footer {
+  margin-top: auto; /* Отодвигаем Footer к низу */
+}
+
+.display-orders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 4%;
+}
+
+.order-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 колонки в строке */
+  gap: 20px; /* Отступ между заказами */
+}
+
+.display-order {
+  position: relative; /* Относительное позиционирование для контейнера заказа */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 250px; /* Настройте ширину по дизайну */
+}
+
+.display-order-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-order-main-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.display-order-order {
+  margin-left: 5%;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.display-order-number {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.display-order-comment {
+  margin-left: 5%;
+  margin-bottom: 10px;
+  word-wrap: break-word; /* Перенос слов на новую строку */
+  overflow-wrap: break-word; /* Обеспечивает перенос слов */
+  white-space: normal; /* Обычный режим переноса текста */
+  text-align: left; /* Выровнять текст комментария по левому краю */
+}
+
+.display-order-line {
+  border-bottom: 1px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.display-order-status-button {
+  position: relative; /* Относительное позиционирование для родительского элемента */
+  border: none;
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  background-color: inherit; /* Наследует цвет для гибкости */
+}
+
+.display-order-arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  margin-left: 8px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.display-order-status-container {
+    position: relative; /* Блок-контейнер для кнопки и меню */
+    display: inline-block; /* Уменьшает ширину до содержимого */
+}
+
+.custom-dropdown-menu {
+  position: absolute;  /* Абсолютное позиционирование относительно кнопки */
+  top: 100%;           /* Появляется сразу под кнопкой */
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 100%;         /* Ширина меню совпадает с кнопкой */
+  box-sizing: border-box; /* Учёт границ и отступов */
+}
+
+.custom-dropdown-menu button {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.custom-dropdown-menu button:hover {
+  background-color: #f0f0f0;
+}
+
+.custom-button-not-ready,
+.custom-button-ready,
+.custom-button-issued {
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.custom-button-not-ready {
+  background-color: red;
+}
+
+.custom-button-ready {
+  background-color: yellow;
+}
+
+.custom-button-issued {
+  background-color: lawngreen;
+}
+
+.custom-buttons-info {
+  height: 55px;
+  font-size: 15px;
+}
+
+.custom-contact-info {
+  margin-bottom: 10px;
+}
+
+.custom-contact-info-2 {
+  margin-bottom: 20px;
+}
